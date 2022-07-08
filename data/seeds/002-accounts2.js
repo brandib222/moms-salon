@@ -5,8 +5,8 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // add data into insert
       return knex('accounts2').insert([
-        { name: 'Cathy', city: 'Evansville' },
-        { name: 'Gale', city: 'Newburgh' },
+        { name: 'Cathy', city: 'Evansville', email:'Cathy@gmail.com', password:'love' },
+        { name: 'Gale', city: 'Newburgh', email:'Gale@gmail.com', password:'1234' },
       ]);
     });
 };
