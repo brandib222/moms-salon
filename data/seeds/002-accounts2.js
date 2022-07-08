@@ -7,6 +7,7 @@ exports.seed = function(knex, Promise) {
       return knex('accounts2').insert([
         { name: 'Cathy', city: 'Evansville', email:'Cathy@gmail.com', password:'love' },
         { name: 'Gale', city: 'Newburgh', email:'Gale@gmail.com', password:'1234' }
+
       ]);
     });
 };
