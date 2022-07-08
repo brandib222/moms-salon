@@ -1,7 +1,6 @@
 const db = require('../../data/dbConfig');
 
-module exports = {
-    find,
+module.exports = {
     findByEmail,
     add, 
     remove, 
@@ -14,8 +13,8 @@ function findByEmail(email) {
       .first();
   }
 
-async function add(hub) {
-    const [id] = await db('accounts2').insert(account);
+async function add(account) {
+    const [email] = await db('accounts2').insert(account);
   
     return findByEmail(email);
   }
