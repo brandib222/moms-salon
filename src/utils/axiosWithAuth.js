@@ -1,5 +1,5 @@
 import axios from 'axios';
-import url from '../src/components/URL';
+import url from '../components/URL';
 
 const axiosWithAuth = () => {
     const token = localStorage.getItem('token');
@@ -13,3 +13,5 @@ const axiosWithAuth = () => {
         })
     )
 }
+
+export default axiosWithAuth;
