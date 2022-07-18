@@ -11,11 +11,11 @@ export default function Dashboard (props) {
     const [clients, setClients] = useState(initialClients);
 
     const getClients = () => {
-        axiosWithAuth().get('http://localhost:3000/')
+        axios.get('http://localhost:3000/')
             .then(res => {
                 //setClients(res.data)
                 console.log('hello');
-                console.log(res.data);
+                console.log(res);
             }).catch(err => console.error(err));
 
     }

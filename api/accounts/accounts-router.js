@@ -5,9 +5,13 @@ const Accounts = require('./accounts-model');
 
 const router = express.Router();
 
-router.get('/:email', (req, res, next) => {
-    res.status(200).json(req.account)
-});
+router.get('/', (req, res, next) => {
+    Accounts.get()
+    .then(accounts => {
+        res.json(accounts)
+    })
+    .catch(next)
+})
 
 router.post('/', (req, res) => {
     Accounts.add(req.body)

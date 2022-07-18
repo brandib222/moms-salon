@@ -1,17 +1,17 @@
-import axios from 'axios';
-import url from '../components/URL';
+// import axios from 'axios';
+// import url from '../components/URL';
 
-const axiosWithAuth = () => {
-    const token = localStorage.getItem('token');
+// const axiosWithAuth = () => {
+//     const token = localStorage.getItem('token');
 
-    return (
-        axios.create({
-        headers: {
-            authorization:token
-        },
-        baseURL:url
-        })
-    )
-}
+//     return (
+//         axios.create({
+//         headers: {
+//             authorization:token
+//         },
+//         baseURL:url
+//         })
+//     )
+// }
 
-export default axiosWithAuth;
+// export default axiosWithAuth;
