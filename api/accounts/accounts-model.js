@@ -19,6 +19,8 @@ async function add(account) {
     return findByEmail(email);
   }
 
+  
+
   function remove(email) {
     return db('accounts2')
       .where({ email })
