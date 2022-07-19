@@ -20,7 +20,7 @@ function accountToBody(account) {
 }
 
 function get(email) {
-  let query = db('actions');
+  let query = db('accounts2');
 
   if (email) {
     return query

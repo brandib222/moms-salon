@@ -19,6 +19,7 @@ export default function Dashboard (props) {
             }).catch(err => console.error(err));
 
     }
+    
 
     useEffect(() => {
         getClients();
