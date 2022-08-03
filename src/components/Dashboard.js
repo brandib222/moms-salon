@@ -26,9 +26,9 @@ export default function Dashboard (props) {
 
     return (
         <div className='clients-list-wrapper'> 
-            <div> Is it working </div>
+            <div> Mom's Salon </div>
              <h2 className='dashboard-h2'>Dashboard</h2>
-             {/* <Login /> */}
+             <Login />
                 <div className='client-cards'>
                     {clients.map(client => (
                         <ClientCard key={client.email} details={client} />
