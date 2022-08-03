@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
     .catch(next)
 })
 
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
     Accounts.add(req.body)
         .then(account => {
             res.status(201).json(account);
@@ -25,4 +25,9 @@ router.post('/', (req, res) => {
         });
 });
 
+module.exports = {
+    router,
+  };
+  
+  
 // need to write out remove and update accounts
