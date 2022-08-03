@@ -11,8 +11,8 @@ export default function Dashboard (props) {
     const [clients, setClients] = useState(initialClients);
 
     const getClients = () => {
-        axios.get('http://localhost:3000/')
-            .then(res => {
+        axios.get('http://localhost:9000/api/accounts')
+            .then((res) => {
                 //setClients(res.data)
                 console.log('hello');
                 console.log(res);
@@ -20,10 +20,9 @@ export default function Dashboard (props) {
 
     }
     
-
     useEffect(() => {
         getClients();
-    }, [clients])
+    }, [])
 
     return (
         <div className='clients-list-wrapper'> 

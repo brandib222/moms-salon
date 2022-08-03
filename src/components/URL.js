@@ -1,4 +1,4 @@
 // url to be updated as backend complete
-const url = 'http://localhost:3000/';
+const url = 'http://localhost:4000/';
 
 export default url;
