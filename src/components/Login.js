@@ -20,10 +20,10 @@ export default function Login (props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         // WHERE IS THIS PATH COMING FROM 
-        axios.post(`http://localhost:9000/api/auth/login`, login)
-            .then(resp => {
-                console.log('You did it!', resp);
-                localStorage.setItem('token', resp.data.token);
+        axios.post(`http://localhost:9000/login`, login)
+            .then(res => {
+                console.log('You did it!', res);
+                localStorage.setItem('token', res.data.token);
                 props.setIsLoggedIn(localStorage.getItem('token'));
             }).catch(err => {
                 console.error(err);
