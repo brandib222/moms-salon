@@ -1,65 +1,59 @@
-// import React, { useState } from 'react';
-// import { useHistory } from 'react-router-dom';
-// import axiosWithAuth from '../utils/axiosWithAuth';
-// import url from '../components/URL';
+import { React, useState } from 'react';
+import axios from 'axios';
 
-// const initialFormValues = { 
-//     email: '',
-//     password: ''
-// }
-// const errorValues ={
-//     error:'',
-// }
-// const Login = () => {
-//     const { push } = useHistory();
-//     const [formValues, setFormValues] = useState(initialFormValues);
-//     const [error, setError] = useState(errorValues);
+export default function Login (props) {
+    const { isLoggedIn, setIsLoggedIn } = props;
 
-//     const handleChange = (e) => {
-//         setFormValues({
-//             ...formValues,
-//             [e.target.name]:e.target.value
-//         });
-//     }
 
-//     const handleSubmit = (e) => {
-//         e.preventDefault();
-//         axiosWithAuth().post(`${url}api/auth/login`, formValues)
-//           .then(res => {
-//             localStorage.setItem('token', res.data.token);
-//             console.log(res);
-//             push('/');
-//           })
-//           .catch(err => {
-//             setError({
-//               error: err.response.data.message          });
-//           })
-//       }
+    const [login, setLogin] = useState({
+        email:'',
+        password:''
+    });
 
-//     return(
-//         <form className='register-wrapper' onSubmit={handleSubmit}>
-//             <label>Email:
-//                 <input 
-//                     value={formValues.email}
-//                     name='email'
-//                     type='text'
-//                     placeholder='Email'
-//                     onChange={handleChange}
-//                 />
-//             </label>
-//             <label>Password:
-//                 <input 
-//                     value={formValues.password}
-//                     name='password'
-//                     type='password'
-//                     placeholder='Password'
-//                     onChange={handleChange}
-//                 />
-//             </label>
-//             <button>Log In</button>
-//             <p>{error.error}</p>
-//         </form>
-//     )
-// }
+    const handleChange = (e) => {
+        setLogin({
+            ...login,
+            [e.target.name]: e.target.value
+        })
+    };
 
-// export default Login;
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // WHERE IS THIS PATH COMING FROM 
+        axios.post(`http://localhost:9000/login`, login)
+            .then(res => {
+                console.log('You did it!', res);
+                localStorage.setItem('token', res.data.token);
+                props.setIsLoggedIn(localStorage.getItem('token'));
+            }).catch(err => {
+                console.error(err);
+            })
+    }
+
+    return (<>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <h1> Please Sign In </h1>
+                <label className='email-container'>
+                    <input 
+                        type='text'
+                        name='email'
+                        placeholder='enter email'
+                        value={login.email}
+                        onChange={handleChange}
+                    />
+                </label>
+                <label className='password-container'>
+                    <input 
+                        type='text'
+                        name='password'
+                        placeholder='enter password'
+                        value={login.password}
+                        onChange={handleChange}
+                    />
+                </label>
+                <button className='login-btn'> Login </button>
+            </form>
+        </div>
+    </>)
+}
