@@ -17,3 +17,5 @@ exports.up = function(knex, Promise) {
     // drops the entire table
     return knex.schema.dropTableIfExists('accounts2');
   };
+
+  
