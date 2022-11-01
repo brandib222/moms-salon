@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+form {
+  background: aliceblue;
+  font-size: 16px;
+}
+
+button {
+  background-color: #54678d;
+  color: wheat;
+}
