@@ -37,11 +37,16 @@
   }
 }
 
-form {
-  background: aliceblue;
-  font-size: 16px;
+.title {
+  font-size: 80px;
 }
 
+form {
+  font-size: 16px;
+  border: 3px black;
+
+}
+ 
 button {
   background-color: #54678d;
   color: wheat;
