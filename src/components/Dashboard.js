@@ -26,8 +26,8 @@ export default function Dashboard (props) {
 
     return (
         <div className='clients-list-wrapper'> 
-            <div> Mom's Salon </div>
-             <h2 className='dashboard-h2'>Dashboard</h2>
+            <div className='title'> Mom's Salon </div>
+             <h2 className='dashboard-h2'>Welcome!</h2>
              <Login />
                 <div className='client-cards'>
                     {clients.map(client => (
